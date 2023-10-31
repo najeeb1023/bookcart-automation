@@ -1,0 +1,9 @@
+{
+    "default": {
+        "paths": [
+            "src/test/features/"
+        ],
+        "publishQuiet": true,
+        "dryRun": true
+    }
+}
