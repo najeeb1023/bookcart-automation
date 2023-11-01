@@ -11,7 +11,7 @@ setDefaultTimeout(60 * 1000 * 2)
 
   Given('User clicks on the login link', async function () {
     let loginUser = new Login(pageFixture.page);
-    await loginUser.goToAdmin()
+    await loginUser.goToAdmin();
   });
 
   Given('User enter the username as {string}', async function (username: string) {
@@ -30,11 +30,13 @@ setDefaultTimeout(60 * 1000 * 2)
   });
 
   When('Login should be success', async function () {
-    console.log('Sucessfully passed.');
+    let loginPage = new Login(pageFixture.page);
+    await loginPage.assertSuccessFulLogin();
   });
   
 
   When('Login should fail', async function () {
-    console.log('Test ended.');
+    let loginPage = new Login(pageFixture.page);
+    await loginPage.assertFailedLogin();
   });
 

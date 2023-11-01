@@ -6,12 +6,6 @@ let page: Page;
 let browser: Browser;
 
 
-BeforeAll (async function (){
-    // browser = await chromium.launch({headless: false});
-    // page = await browser.newPage();
-    // pageFixture.page = page;
-});
-
 Before (async function () {
     browser = await chromium.launch({headless: false});
     page = await browser.newPage();
@@ -20,7 +14,7 @@ Before (async function () {
 });
 
 AfterAll (async function (){
-    await pageFixture.page. close()
-    await browser.close()
+    await pageFixture.page.close();
+    await browser.close();
 })
 
