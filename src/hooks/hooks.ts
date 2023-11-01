@@ -1,20 +1,28 @@
 import { BeforeAll, AfterAll, After, Before } from "@cucumber/cucumber";
-import { chromium, Browser, Page } from "@playwright/test";
+import { chromium, Browser, Page, BrowserContext } from "@playwright/test";
 import { pageFixture } from "./pageFixture";
 
 let page: Page;
 let browser: Browser;
+let context: BrowserContext;
 
+BeforeAll (async function () {
+    browser = await chromium.launch({headless: false});
+}); 
 
 Before (async function () {
-    browser = await chromium.launch({headless: true});
-    page = await browser.newPage();
+    context = await browser.newContext()
+    const page = await context.newPage();
     pageFixture.page = page;
 
 });
 
-AfterAll (async function (){
-    await pageFixture.page.close();
-    await browser.close();
-})
+After (async function (){
+    //await pageFixture.page.close();
+    //await context.close();
+});
 
+
+AfterAll (async function () {
+    //await browser.close()
+})

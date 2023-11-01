@@ -36,12 +36,13 @@ export class Login {
 
     public async assertFailedLogin():Promise<void>{
         
-        expect (this.loginPageLocators.errorMessage()).toContainText('Username or Password is incorrect.');
-        await pageFixture.page.waitForTimeout(6000);
+        expect (this.loginPageLocators.errorMessage()).toContainText('Username or Password is incorrect');
+        //await pageFixture.page.waitForTimeout(6000);
         
     }
 
     public async assertSuccessFulLogin():Promise<void>{
+        await pageFixture.page.waitForTimeout(6000);
         expect (this.loginPageLocators.bookCategoryTable()).toBeVisible();
     }
 
