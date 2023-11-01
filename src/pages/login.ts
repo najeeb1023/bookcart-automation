@@ -32,7 +32,7 @@ export class Login {
     }
 
     public async assertFailedLogin():Promise<void>{
-        await expect (this.loginPageLocators.errorMessage()).toContainText('Username or Password is incorrect');
+       await expect (this.loginPageLocators.errorMessage()).toContainText('Username or Password is incorrect');
     }
 
     public async assertSuccessFulLogin():Promise<void>{
