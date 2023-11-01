@@ -1,5 +1,6 @@
 import { Given, When,Then, setDefaultTimeout } from "@cucumber/cucumber"
 import { pageFixture } from "../../hooks/pageFixture";
+import { AddFiction } from "../../pages/addFictionBook";
 
 setDefaultTimeout(60 * 1000 * 2)
 
@@ -8,9 +9,12 @@ Given('navigates to the application', async function (){
 });
 
 Then('User click to fiction category book',async function () {
-    await pageFixture.page.locator("//div[@class='filter-container']").getByText('Romance').click();
+    let bookTable = new AddFiction(pageFixture.page)
+    await bookTable.selectBook();
 });
 
 Then('User is able to select Wicked and the Wallflower Sarah MacLean bookcart', async function() {
-    await pageFixture.page.locator("//div[@class='card-title']").first().getByText('HP3').click();
+    let selectBook = new AddFiction(pageFixture.page)
+    
+    
 });
