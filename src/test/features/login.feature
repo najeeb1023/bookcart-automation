@@ -15,8 +15,8 @@ Feature: User Autentication tests
             | USERNAME | PASSWORD |
             | ortoni   | Pass1234 |
 
-    # Scenario: Login should not be success
-    #     Given User enter the username as "dhaz"
-    #     Given User enter the password as "zatak"
-    #     When User click on the login button
-    #     But Login should fail
+    Scenario: Login should not be success
+        Given User enter the username as "dhaz"
+        Given User enter the password as "zatak"
+        When User click on the login button
+        But Login should fail

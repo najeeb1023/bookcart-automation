@@ -1,18 +1,22 @@
-import { Page } from "@playwright/test";
+import { Page, expect } from "@playwright/test";
+import { pageFixture } from "../hooks/pageFixture";
+
 
 export class Login {
 
     loginPageLocators = {
-        usernameField:() => this.page.locator("//input[@formcontrolname='username']"),
+        usernameField:() => pageFixture.page.locator("//input[@formcontrolname='username']"),
         passwordField:() => this.page.locator("//input[@formcontrolname='password']"),
         loginBtn:() => this.page.locator("button[color='primary']"),
-        goToLogin:() => this.page.locator("//span[text()='Login']")
+        goToLogin:() => this.page.locator("//span[text()='Login']"),
+        errorMessage:() => this.page.locator("//div[@class='docs-example-viewer-body']"),
+        bookCategoryTable:() => this.page.locator("//div[@class='filter-container']")
     }
 
 
 
     constructor(public page: Page){
-        page = page;
+        pageFixture.page = page;
     }
 
     public async loginUser():Promise<void> {
@@ -28,6 +32,17 @@ export class Login {
     }
     public async passWord(password: string):Promise<void>{
         await this.loginPageLocators.passwordField().type(password);
+    }
+
+    public async assertFailedLogin():Promise<void>{
+        
+        expect (this.loginPageLocators.errorMessage()).toContainText('Username or Password is incorrect.');
+        await pageFixture.page.waitForTimeout(6000);
+        
+    }
+
+    public async assertSuccessFulLogin():Promise<void>{
+        expect (this.loginPageLocators.bookCategoryTable()).toBeVisible();
     }
 
 }
