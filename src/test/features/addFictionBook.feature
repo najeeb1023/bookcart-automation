@@ -1,8 +1,9 @@
 @AddFictionBook
 Feature: Navigates to Ficition Category
 
-Background:
-    Given navigates to the application
+Background: User logs in
+ Given User navigates to the application
+    
 
 Scenario: Navigate to fiction category
     Then User click to fiction category book

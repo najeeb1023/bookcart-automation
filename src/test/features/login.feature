@@ -1,7 +1,7 @@
 @LoginUser
 Feature: User Autentication tests
 
-    Background:
+    Background: User logs in
         Given User navigates to the application
         And User clicks on the login link
     

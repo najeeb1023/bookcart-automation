@@ -9,12 +9,13 @@ Given('navigates to the application', async function (){
 });
 
 Then('User click to fiction category book',async function () {
-    let bookTable = new AddFiction(pageFixture.page)
-    await bookTable.selectBook();
+    let bookTable = new AddFiction(pageFixture.page);
+    await bookTable.bookTable();
 });
 
 Then('User is able to select Wicked and the Wallflower Sarah MacLean bookcart', async function() {
     let selectBook = new AddFiction(pageFixture.page)
+    await selectBook.selectBook();
     
     
 });
