@@ -1,0 +1,35 @@
+{
+    "name": "Login Page",
+    "webElements": [
+        {
+            "elementName": "usernameField",
+            "selectorValue": "//input[@formcontrolname='username']"
+
+        },
+        {
+            "elementName": "passwordField",
+            "selectorValue": "//input[@formcontrolname='password']"
+
+        },
+        {
+            "elementName": "loginBtn",
+            "selectorValue": "button[color='primary']"
+
+        },
+        {
+            "elementName": "goToLogin",
+            "selectorValue": "//span[text()='Login']"
+
+        },
+        {
+            "elementName": "errorMessage",
+            "selectorValue": "//div[@class='docs-example-viewer-body']"
+
+        },
+        {
+            "elementName": "bookCategoryTable",
+            "selectorValue": "//div[@class='filter-container']"
+
+        }
+    ]
+}

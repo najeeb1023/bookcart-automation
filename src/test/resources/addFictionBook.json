@@ -1,0 +1,14 @@
+{
+    "name": "Add Fiction Book",
+    "webElements": [
+        {
+            "elementName": "bookCategoryTable",
+            "selectorValue": "//div[@class='filter-container']"
+        },
+        {
+            "elementName": "selectedBook",
+            "selectorValue": "//div[@class='card-title']"
+        }
+    ]
+
+}

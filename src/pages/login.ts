@@ -1,16 +1,21 @@
 import { Page, expect } from "@playwright/test";
+import * as loginLocators from "../test/resources/loginLocators.json";
 import { pageFixture } from "../hooks/pageFixture";
+import { PageElement } from "../test/resources/interfaces/iPageElement";
 
+    function getResource(resourceName: string){
+        return loginLocators.webElements.find((element: PageElement) => element.elementName == resourceName) as PageElement;
+    }
 
 export class Login {
 
     loginPageLocators = {
-        usernameField:() => pageFixture.page.locator("//input[@formcontrolname='username']"),
-        passwordField:() => this.page.locator("//input[@formcontrolname='password']"),
-        loginBtn:() => this.page.locator("button[color='primary']"),
-        goToLogin:() => this.page.locator("//span[text()='Login']"),
-        errorMessage:() => this.page.locator("//div[@class='docs-example-viewer-body']"),
-        bookCategoryTable:() => this.page.locator("//div[@class='filter-container']")
+        usernameField:() => pageFixture.page.locator(getResource('usernameField').selectorValue),
+        passwordField:() => this.page.locator(getResource('passwordField').selectorValue),
+        loginBtn:() => this.page.locator(getResource('loginBtn').selectorValue),
+        goToLogin:() => this.page.locator(getResource('goToLogin').selectorValue),
+        errorMessage:() => this.page.locator(getResource('errorMessage').selectorValue),
+        bookCategoryTable:() => this.page.locator(getResource('bookCategoryTable').selectorValue)
     }
     constructor(public page: Page){
         pageFixture.page = page;
