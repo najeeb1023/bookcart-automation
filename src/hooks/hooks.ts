@@ -18,8 +18,8 @@ Before (async function () {
 });
 
 After (async function (){
-    //await pageFixture.page.close();
-    //await context.close();
+    await pageFixture.page.close();
+    await context.close();
 });
 
 
