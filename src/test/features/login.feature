@@ -1,3 +1,4 @@
+@login
 Feature: User Autentication tests
 
     Background:

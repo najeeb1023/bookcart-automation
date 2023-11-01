@@ -37,8 +37,7 @@ let page: Page;
   });
 
 
-  Then('Login should be success', async function () {
-    console.log('Runs 4')
+
   });
 
   When('Login should fail', async function () {
