@@ -5,7 +5,7 @@ let browser: Browser;
 let page:Page;
 
 Given('navigates to the application', async function (){
-    browser = await chromium.launch({headless: false});
+    browser = await chromium.launch({headless: true});
     page = await browser.newPage();
     await page.goto('https://bookcart.azurewebsites.net/');
 });
