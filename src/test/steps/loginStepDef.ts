@@ -37,7 +37,10 @@ let page: Page;
   });
 
 
+  When('Login should be success', async function () {
+    console.log('Runs 5')
 
+  });
   
 
   When('Login should fail', async function () {

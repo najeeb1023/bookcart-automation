@@ -1,4 +1,4 @@
-@Admin
+@AddFictionBook
 Feature: Navigates to Ficition Category
 
 Background:
