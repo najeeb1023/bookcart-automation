@@ -1,4 +1,4 @@
-import { BeforeAll, AfterAll, After, Before } from "@cucumber/cucumber";
+import { BeforeAll, AfterAll, After, Before, Status } from "@cucumber/cucumber";
 import { chromium, Browser, Page, BrowserContext } from "@playwright/test";
 import { pageFixture } from "./pageFixture";
 import { config } from "../../playwright.config";
@@ -18,7 +18,14 @@ Before (async function () {
 
 });
 
-After (async function (){
+After (async function ({ pickle, result }){
+    console.log(result?.status);
+    if(result?.status == Status.PASSED){
+        const img = await pageFixture.page.screenshot({ path: `./test-result/screenshots/${pickle.name}.png`,type: "png"});
+        await this.attach(img,"image/png");
+    }
+
+    
     await pageFixture.page.close();
     await context.close();
 });

@@ -12,9 +12,6 @@ export class Login {
         errorMessage:() => this.page.locator("//div[@class='docs-example-viewer-body']"),
         bookCategoryTable:() => this.page.locator("//div[@class='filter-container']")
     }
-
-
-
     constructor(public page: Page){
         pageFixture.page = page;
     }
