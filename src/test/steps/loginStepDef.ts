@@ -33,7 +33,7 @@ let page: Page;
   });
 
 
-  Then('Login should be success', async function () {
+  Then('user should be login successfully', async function () {
     const text = await page.locator("//button[contains(@class, 'mat-focus-indicator mat-menu-trigger')]//span[1]").textContent() // to look into
     console.log("Username: "+text);
   });
